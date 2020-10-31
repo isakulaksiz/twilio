@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("twilio")
 public class TwilioSmsSender implements SmsSender {
     private static final Logger LOGGER = LoggerFactory.getLogger(TwilioSmsSender.class);
 

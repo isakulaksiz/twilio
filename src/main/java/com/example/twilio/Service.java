@@ -1,17 +1,18 @@
 package com.example.twilio;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @org.springframework.stereotype.Service
 public class Service {
-    private final TwilioSmsSender twilioSmsSender;
+    private final SmsSender smsSender;
 
     @Autowired
-    public Service(TwilioSmsSender twilioSmsSender) {
-        this.twilioSmsSender = twilioSmsSender;
+    public Service(@Qualifier("twilio") TwilioSmsSender smsSender) {
+        this.smsSender = smsSender;
     }
 
     public void SendSMS(SmsRequest smsRequest){
-        twilioSmsSender.sendSMS(smsRequest);
+        smsSender.sendSMS(smsRequest);
     }
 }

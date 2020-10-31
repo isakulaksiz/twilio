@@ -1,11 +1,18 @@
 package com.example.twilio;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotBlank;
+
 public class SmsRequest {
 
+    @NotBlank
     private final String phoneNum;
+
+    @NotBlank
     private final String message;
 
-    public SmsRequest(String phoneNum, String message) {
+    public SmsRequest(@JsonProperty("phoneNum") String phoneNum, @JsonProperty("message") String message) {
         this.phoneNum = phoneNum;
         this.message = message;
     }
